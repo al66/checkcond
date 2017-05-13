@@ -1,0 +1,31 @@
+{
+  "name": "checkcond",
+  "version": "0.0.1",
+  "description": "check value against condition string",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/al66/checkcond.git"
+  },
+  "keywords": [
+    "condition",
+    "eval"
+  ],
+  "author": "Andreas Leinen <andreas.leinen@imicros.de> (www.imicros.de)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/al66/checkcond/issues"
+  },
+  "homepage": "https://github.com/al66/checkcond#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {}
+}
