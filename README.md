@@ -1,5 +1,6 @@
 # checkcond
 [![Build Status](https://travis-ci.org/al66/checkcond.svg?branch=master)](https://travis-ci.org/al66/checkcond)
+[![Coverage Status](https://coveralls.io/repos/github/al66/checkcond/badge.svg?branch=master)](https://coveralls.io/github/al66/checkcond?branch=master)
 
 check value against condition string
 
