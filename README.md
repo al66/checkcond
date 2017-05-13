@@ -3,8 +3,8 @@ check value against condition string
 
 ## Usage
 ```js
-const compiler = require('checkcond').compiler;
-const check = require('checkcond').check;
+const compiler = require('checkcond').Compiler;
+const check = require('checkcond').Check;
 
 let condString = '[7..10]';
 let x = 8;
