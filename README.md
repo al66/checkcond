@@ -14,6 +14,14 @@ let x = 8;
 let cond = compiler(condString);
 let result = check(x, cond);    // => true
 ```
+or via combined processing of compile + check:
+```js
+const checkDirect = require('checkcond').CheckDirect;
+
+let condString = '[7..10]';
+let x = 8;
+let result = checkDirect(x, condString);    // => true
+```
 
 ## Examples
 
@@ -38,20 +46,20 @@ let result = check(x, cond);    // => true
       x=5.001 => true
       x=8 => true
 ```      
-`'[5..10]'`
+`'[5..10]'` between 5 and 10
 ```      
       x=5 => true
       x=10 => true
       x=11 => false
 ```      
-`'< 10, [5..100]'`
+`'< 10, [5..100]'` less then 10 or between 5 and 100
 ```      
       x=1 => true
       x=5 => true
       x=100 => true
       x=101 => false
 ```      
-`'< 1000, !([5..100])'`
+`'< 1000, !([5..100])'` less then 1000 and not between 5 and 100
 ```      
       x=-50 => true
       x=4 => true

@@ -13,7 +13,8 @@
   },
   "keywords": [
     "condition",
-    "eval"
+    "eval",
+    "check"
   ],
   "author": "Andreas Leinen <andreas.leinen@imicros.de> (www.imicros.de)",
   "license": "MIT",
