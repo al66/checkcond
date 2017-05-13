@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/al66/checkcond.svg?branch=master)](https://travis-ci.org/al66/checkcond)
 [![Coverage Status](https://coveralls.io/repos/github/al66/checkcond/badge.svg?branch=master)](https://coveralls.io/github/al66/checkcond?branch=master)
 
+[![NPM](https://nodei.co/npm/checkcond.png)](https://nodei.co/npm/checkcond/)
+
 check value against condition string
 
 ## Usage
@@ -25,7 +27,7 @@ let result = checkDirect(x, condString);    // => true
 
 ## Examples
 
-### Check Digits.
+### Check digits.
 `'< 1.000'`.
 ```
       x=-5 => true
@@ -86,7 +88,7 @@ let result = checkDirect(x, condString);    // => true
       x=13 => true
 ```      
 
-### Check Strings
+### Check strings against arrays
 `"'AL','FGH','NO'"`
 ```      
       x='AL' => true
