@@ -1,8 +1,8 @@
 'use strict';
 
 var expect = require('chai').expect;
-var compiler = require('../lib/cond').compileCondition;
-var check = require('../lib/cond').checkCondition;
+var compiler = require('../index').Compiler;
+var check = require('../index').Check;
 
 var testDigits = [
     ["< 1.000",[ 
