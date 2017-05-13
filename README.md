@@ -1,4 +1,6 @@
 # checkcond
+[![Build Status](https://travis-ci.org/al66/checkcond.svg?branch=master)](https://travis-ci.org/al66/checkcond)
+
 check value against condition string
 
 ## Usage
