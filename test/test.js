@@ -3,6 +3,7 @@
 var expect = require('chai').expect;
 var compiler = require('../index').Compiler;
 var check = require('../index').Check;
+var checkDirect = require('../index').CheckDirect;
 
 var testDigits = [
     ["< 1.000",[ 
@@ -17,6 +18,14 @@ var testDigits = [
             [5, true],
             [5.001, true],
             [8, true]
+        ]
+    ],
+    ["<= 5",[ 
+            [4, true],
+            [5, true],
+            [4.999, true],
+            [5.001, false],
+            [8, false]
         ]
     ],
     [">= 5.001",[ 
@@ -129,7 +138,7 @@ describe('Check Digits', function() {
 });
 
 /* 
- * Test Digits
+ * Test Strings
  */
 describe('Check Strings', function() {
     for(let i = 0; i < testStrings.length; i++) {
@@ -150,5 +159,31 @@ describe('Check Strings', function() {
         });
     }
 });
+/* 
+ * Test Direct processing
+ */
+describe('Check direct processing', function() {
+    let condString = '<=  5';
+    describe(condString, function() {
+        let val = 3;
+        let expected = true;
+        let s = condString;
+        it('X='+val+' => '+expected, function(done){
+            expect(checkDirect(val, s)).to.be.equals(expected);
+            done();
+        });
+    });
+    condString = '>5';
+    describe(condString, function() {
+        let val = 9;
+        let expected = true;
+        let s = condString;
+        it('X='+val+' => '+expected, function(done){
+            expect(checkDirect(val, s)).to.be.equals(expected);
+            done();
+        });
+    });
+});
+
 
 
