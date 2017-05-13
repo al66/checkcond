@@ -91,3 +91,4 @@ let result = check(x, cond);    // => true
       x='AL' => false
       x='AF' => true
 ```      
+
