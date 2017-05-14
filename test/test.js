@@ -22,7 +22,7 @@ var testDigits = [
     ],
     ["<= 5",[ 
             [4, true],
-            [5, true],
+            ['5', true],
             [4.999, true],
             [5.001, false],
             [8, false]
