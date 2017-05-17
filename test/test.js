@@ -74,13 +74,78 @@ var testDigits = [
         ]
     ]
 ];
+
+var testDates = [
+    ['< 01.01.2017', [
+            [new Date(Date.parse('12.12.2015')), true],
+            [new Date(Date.parse('05.03.2019')), false]
+        ]
+    ],
+    ['01.01.2017', [
+            [new Date(Date.parse('01.01.2017')), true],
+            ['01.01.2017', true]
+        ]
+    ],
+    ['[01.01.2017..01.01.2018],01.01.2019,[03.01.2019..01.03.2019]', [
+            [new Date(Date.parse('12.12.2015')), false],
+            [new Date(Date.parse('01.01.2017')), true],
+            [new Date(Date.parse('05.06.2017')), true],
+            [new Date(Date.parse('01.02.2018')), false],
+            ['01.01.2019', true],
+            [new Date(Date.parse('01.01.2019')), true]
+        ]
+    ],
+    ['> 11/03/2017', [
+            [new Date(Date.parse('12/01/2017')), true],
+            [new Date(Date.parse('10/04/2017')), false]
+        ]
+    ],
+    ['>=11/03/2017', [
+            [new Date(Date.parse('11/03/2017')), true],
+            [new Date(Date.parse('11/02/2017')), false]
+        ]
+    ],
+    ['11/03/2017', [
+            [new Date(Date.parse('12/01/2017')), false],
+            ['11/03/2017', true]
+        ]
+    ],
+    ['[01.01.2017..01.01.2018]', [
+            [new Date(Date.parse('12.12.2015')), false],
+            [new Date(Date.parse('01.01.2017')), true],
+            [new Date(Date.parse('05.06.2017')), true],
+            [new Date(Date.parse('01.01.2018')), true],
+            [new Date(Date.parse('01.01.2019')), false],
+            [new Date(Date.parse('05.03.2019')), false]
+        ]
+    ],
+    ['!([01.01.2017..01.01.2018])', [
+            [new Date(Date.parse('12.12.2015')), true],
+            [new Date(Date.parse('01.01.2017')), false],
+            [new Date(Date.parse('05.06.2017')), false],
+            [new Date(Date.parse('01.01.2018')), false],
+            [new Date(Date.parse('01.01.2019')), true],
+            [new Date(Date.parse('05.03.2019')), true]
+        ]
+    ]
+];
 var testStrings = [
     ["'AL','FGH','NO'",[
             ['AL', true],
             ['AF', false]
         ]
     ],
+    ["AL,FGH,NO",[
+            ['AL', true],
+            ['AF', false]
+        ]
+    ],
     ["not('AL','FGH','NO')",[
+            ['AL', false],
+            ['AF', true]
+        ]
+    ],
+    ["not(AL,FGH,NO)",[
             ['AL', false],
             ['AF', true]
         ]
@@ -101,7 +166,6 @@ var testStrings = [
         ]
     ]
 ];
-
 
 /* 
  * Test Digits
@@ -125,7 +189,28 @@ describe('Check Digits', function() {
         });
     }
 });
-
+/* 
+ * Test Dates
+ */
+describe('Check Dates', function() {
+    for(let i = 0; i < testDates.length; i++) {
+        let t = testDates[i];
+        let condString = t[0];
+        describe(condString, function() {
+            let values = t[1];
+            for (let n = 0; n < values.length; n++) {
+                let v = values[n];
+                let val = v[0];
+                let expected = v[1];
+                it('X='+val+' => '+expected, function(done){
+                    let cond = compiler(condString);
+                    expect(check(val, cond)).to.be.equals(expected);
+                    done();
+                });
+            }
+        });
+    }
+});
 /* 
  * Test Strings
  */
