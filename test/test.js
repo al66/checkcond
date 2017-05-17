@@ -74,15 +74,35 @@ var testDigits = [
         ]
     ]
 ];
+
 var testDates = [
     ['< 01.01.2017', [
             [new Date(Date.parse('12.12.2015')), true],
             [new Date(Date.parse('05.03.2019')), false]
         ]
     ],
+    ['01.01.2017', [
+            [new Date(Date.parse('01.01.2017')), true],
+            ['01.01.2017', true]
+        ]
+    ],
+    ['[01.01.2017..01.01.2018],01.01.2019,[03.01.2019..01.03.2019]', [
+            [new Date(Date.parse('12.12.2015')), false],
+            [new Date(Date.parse('01.01.2017')), true],
+            [new Date(Date.parse('05.06.2017')), true],
+            [new Date(Date.parse('01.02.2018')), false],
+            ['01.01.2019', true],
+            [new Date(Date.parse('01.01.2019')), true]
+        ]
+    ],
     ['> 11/03/2017', [
             [new Date(Date.parse('12/01/2017')), true],
             [new Date(Date.parse('10/04/2017')), false]
+        ]
+    ],
+    ['>=11/03/2017', [
+            [new Date(Date.parse('11/03/2017')), true],
+            [new Date(Date.parse('11/02/2017')), false]
         ]
     ],
     ['11/03/2017', [
@@ -146,7 +166,6 @@ var testStrings = [
         ]
     ]
 ];
-
 
 /* 
  * Test Digits
