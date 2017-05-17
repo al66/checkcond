@@ -1,6 +1,6 @@
 {
   "name": "checkcond",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "check value against condition string",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,9 @@
   "keywords": [
     "condition",
     "eval",
-    "check"
+    "check",
+    "DMN",
+    "decision"
   ],
   "author": "Andreas Leinen <andreas.leinen@imicros.de> (www.imicros.de)",
   "license": "MIT",
