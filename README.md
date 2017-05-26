@@ -90,6 +90,12 @@ let result = checkDirect(x, condString);    // => true
       x=13 => true
 ```      
 ### Check dates
+Supported date formats for conditions and values are:
+ - mm/dd/yyyy
+ - yyyy/mm/dd
+ - yyyy-mm-dd
+ - dd.mm.yyyy
+
 `'< 01/01/2017'`.
 ```
       x='10/12/2015' => true

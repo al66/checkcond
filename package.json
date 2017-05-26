@@ -1,6 +1,6 @@
 {
   "name": "checkcond",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "check value against condition string",
   "main": "index.js",
   "scripts": {
